@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    <h3>主页的页头</h3>
+    <router-link to="/index">系统首页</router-link>
+    <router-link to="/stu">学生管理</router-link>
+    <hr>
+
+    <router-view></router-view>
+</div>
+<script src="js/vue.min.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+<script>
+    let index = {
+        template: `<div>百知教育管理系统</div>`
+    };
+    let stu = {
+        template: `<div>学生管理</div>`
+    };
+
+    let myRouter = new VueRouter({
+        routes: [
+            {path: '/index', component: index},
+            {path: '/stu', component: stu},
+        ]
+    })
+    new Vue({
+        el: '#app',
+        data: {},
+        components: {
+            index: index,
+            stu: stu,
+        },
+        router: myRouter,
+    })
+</script>
+</body>
+</html>
